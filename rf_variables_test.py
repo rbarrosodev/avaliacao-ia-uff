@@ -10,15 +10,14 @@ start_time = datetime.now()
 print("Start Time:", start_time)
 
 param_grid = {
-    'n_estimators': [200, 300],          # Number of trees in the forest
-    'max_depth': [2, 5, 10, 15, 20, None],           # Maximum depth of the tree
-    'min_samples_split': [2, 5, 10, 20, 50],
-    'min_samples_leaf': [1, 2, 5, 10, 20],             # Minimum number of samples in a leaf node
+    'n_estimators': [100],          # Number of trees in the forest
+    'max_depth': [10],           # Maximum depth of the tree
+    'min_samples_split': [5],
+    'min_samples_leaf': [5],             # Minimum number of samples in a leaf node
     'bootstrap': [True],                    # Whether bootstrap samples are used when building trees                 # Whether bootstrap samples are used when building trees
-    'oob_score': [True, False],
-    'max_features': ['sqrt', 'log2', None],
-    # Whether to use out-of-bag samples to estimate the generalization error
-    'class_weight': ['balanced', None]
+    'oob_score': [True],
+    'max_features': [None],
+    'class_weight': ['balanced']
 }
 
 # Load dataset
@@ -46,6 +45,8 @@ print(f"Testing time for Accuracy: {testing_time_acc:.2f} seconds")
 print("Best Parameters for Accuracy:", grid_search_accuracy.best_params_)
 print("Best Score for Accuracy:", grid_search_accuracy.best_score_)
 
+time.sleep(10)
+
 scoring_f1_methods = ['f1_micro', 'f1_macro', 'f1_weighted']
 
 for scoring in scoring_f1_methods:
@@ -58,6 +59,8 @@ for scoring in scoring_f1_methods:
     print(f"Testing time for {scoring}: {testing_time_f1:.2f} seconds")
     print(f"Best Parameters for {scoring}:", grid_search_f1.best_params_)
     print(f"Best Score for {scoring}:", grid_search_f1.best_score_)
+
+    time.sleep(10)
 
 # Record the end time
 end_time = datetime.now()

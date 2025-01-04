@@ -1,19 +1,9 @@
-Fitting 5 folds for each of 1800 candidates, totalling 9000 fits
 Testing time for Accuracy: 32.15 seconds
 Best Parameters for Accuracy: {'class_weight': 'balanced', 'criterion': 'entropy', 'max_depth': 10, 'max_features': None, 'min_samples_leaf': 5, 'min_samples_split': 2}
 Best Score for Accuracy: 0.8635714285714287
-Fitting 5 folds for each of 1800 candidates, totalling 9000 fits
-Testing time for f1_micro: 16.85 seconds
-Best Parameters for f1_micro: {'class_weight': 'balanced', 'criterion': 'entropy', 'max_depth': 10, 'max_features': None, 'min_samples_leaf': 5, 'min_samples_split': 2}
-Best Score for f1_micro: 0.8635714285714287
-Fitting 5 folds for each of 1800 candidates, totalling 9000 fits
+
 Testing time for f1_macro: 18.17 seconds
 Best Parameters for f1_macro: {'class_weight': None, 'criterion': 'entropy', 'max_depth': 10, 'max_features': None, 'min_samples_leaf': 5, 'min_samples_split': 2}
 Best Score for f1_macro: 0.8639509497541663
-Fitting 5 folds for each of 1800 candidates, totalling 9000 fits
-Testing time for f1_weighted: 21.80 seconds
-Best Parameters for f1_weighted: {'class_weight': None, 'criterion': 'entropy', 'max_depth': 10, 'max_features': None, 'min_samples_leaf': 5, 'min_samples_split': 2}
-Best Score for f1_weighted: 0.8635465923270834
-
 
 

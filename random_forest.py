@@ -1,7 +1,8 @@
 import time
+import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score, confusion_matrix
 from sklearn.ensemble import RandomForestClassifier
 
 # Load dataset
@@ -15,9 +16,9 @@ y = data["price_range"]  # Target variable
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
 # Create and train Random Forest model
-rf_model = RandomForestClassifier(bootstrap=True, max_depth=None,
-                                  min_samples_leaf=5, min_samples_split=10, oob_score=True,
-                                  n_estimators=200, random_state=42)
+rf_model = RandomForestClassifier(bootstrap=True, max_depth=10, max_features=None,
+                                  min_samples_leaf=5, min_samples_split=5, oob_score=True,
+                                  n_estimators=100, class_weight='balanced', random_state=42)
 start_time = time.time()
 rf_model.fit(X_train, y_train)
 training_time = time.time() - start_time
@@ -34,3 +35,32 @@ accuracy = accuracy_score(y_test, y_pred)
 print(f"Training time: {training_time:.2f} seconds")
 print(f"Testing time: {testing_time:.2f} seconds")
 print(f"Random Forest Accuracy: {accuracy:.2f}")
+
+scoring_f1_methods = ['micro']
+
+for scoring in scoring_f1_methods:
+    rf_model = RandomForestClassifier(bootstrap=True, max_depth=10, max_features=None,
+                                      min_samples_leaf=5, min_samples_split=5, oob_score=True,
+                                      n_estimators=100, class_weight='balanced', random_state=42)
+    start_time_f1_training = time.time()
+    rf_model.fit(X_train, y_train)
+    training_time_f1 = time.time() - start_time_f1_training
+
+    start_time_f1_testing = time.time()
+    y_pred = rf_model.predict(X_test)
+    testing_time_f1 = time.time() - start_time_f1_testing
+
+    f1 = f1_score(y_test, y_pred, average=scoring)
+    # Melhor conjunto de parâmetros
+    print(f"Training time for F1 {scoring}: {training_time_f1:.2f} seconds")
+    print(f"Testing time for F1 {scoring}: {testing_time_f1:.2f} seconds")
+    print(f"Random Forest Score for F1 {scoring}: {f1:.2f}")
+
+    precision = precision_score(y_test, y_pred, average=scoring)  # or 'binary' for binary classification
+    recall = recall_score(y_test, y_pred, average=scoring)
+    print("Precision:", precision)
+    print("Recall:", recall)
+    print("Class distribution:", np.bincount(y_test))
+
+    cm = confusion_matrix(y_test, y_pred)
+    print("Confusion Matrix:\n", cm)
