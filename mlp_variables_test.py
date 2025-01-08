@@ -10,11 +10,11 @@ start_time = datetime.now()
 print("Start Time:", start_time)
 
 param_grid = {
-    'hidden_layer_sizes': [(50,), (100,), (50, 50), (100, 50), (100, 100)],
-    'activation': ['relu', 'tanh', 'logistic'],
-    'solver': ['adam', 'lbfgs', 'sgd'],
+    'hidden_layer_sizes': [(100, 100)],
+    'activation': ['tanh'],
+    'solver': ['lbfgs'],
     'alpha': [0.0001],
-    'learning_rate': ['constant', 'invscaling', 'adaptive'],
+    'learning_rate': ['constant'],
     'learning_rate_init': [0.0001]
 }
 

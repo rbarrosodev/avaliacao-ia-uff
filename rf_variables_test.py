@@ -15,7 +15,6 @@ param_grid = {
     'min_samples_split': [5],
     'min_samples_leaf': [5],             # Minimum number of samples in a leaf node
     'bootstrap': [True],                    # Whether bootstrap samples are used when building trees                 # Whether bootstrap samples are used when building trees
-    'oob_score': [True],
     'max_features': [None],
     'class_weight': ['balanced']
 }

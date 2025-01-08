@@ -17,7 +17,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_
 
 # Create and train Random Forest model
 rf_model = RandomForestClassifier(bootstrap=True, max_depth=10, max_features=None,
-                                  min_samples_leaf=5, min_samples_split=5, oob_score=True,
+                                  min_samples_leaf=5, min_samples_split=5,
                                   n_estimators=100, class_weight='balanced', random_state=42)
 start_time = time.time()
 rf_model.fit(X_train, y_train)
