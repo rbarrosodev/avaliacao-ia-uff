@@ -1,15 +1,10 @@
 import time
-from datetime import datetime
-
 import pandas as pd
+import numpy as np
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score, f1_score
+from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score, confusion_matrix
 from sklearn.neural_network import MLPClassifier
 from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import precision_score, recall_score
-import numpy as np
-from sklearn.metrics import confusion_matrix
-
 
 # Load dataset
 data = pd.read_csv("mobile-phone-data.csv")
