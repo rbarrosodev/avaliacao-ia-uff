@@ -1,9 +1,0 @@
-Testing time for Accuracy: 32.15 seconds
-Best Parameters for Accuracy: {'class_weight': 'balanced', 'criterion': 'entropy', 'max_depth': 10, 'max_features': None, 'min_samples_leaf': 5, 'min_samples_split': 2}
-Best Score for Accuracy: 0.8635714285714287
-
-Testing time for f1_macro: 18.17 seconds
-Best Parameters for f1_macro: {'class_weight': None, 'criterion': 'entropy', 'max_depth': 10, 'max_features': None, 'min_samples_leaf': 5, 'min_samples_split': 2}
-Best Score for f1_macro: 0.8639509497541663
-
-
